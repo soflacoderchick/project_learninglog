@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 import dj_database_url
+import psycopg2
 from decouple import config
 from pathlib import Path
 
@@ -29,7 +30,10 @@ SECRET_KEY = 'django-insecure-l%&jx&wfp^792s-*_fmtybr^hat5c820806!fd%12&-1^dd3$&
 # DEBUG = True
 DEBUG = False
 
-ALLOWED_HOSTS = ['safe-springs-77204.herokuapp.com']
+ALLOWED_HOSTS = [
+    'localhost',
+    '.herokuapp.com',
+    ]
 
 
 # Application definition
@@ -87,11 +91,14 @@ WSGI_APPLICATION = 'learning_log.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'learning_log',
+        'USER': 'postgres',
+        'PASSWORD': 'littleheady3',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -146,5 +153,5 @@ import django_heroku
 django_heroku.settings(locals())
 
 
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
