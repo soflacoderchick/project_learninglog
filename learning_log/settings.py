@@ -28,11 +28,9 @@ SECRET_KEY = 'django-insecure-l%&jx&wfp^792s-*_fmtybr^hat5c820806!fd%12&-1^dd3$&
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
     '.herokuapp.com',
     ]
 
@@ -92,14 +90,21 @@ WSGI_APPLICATION = 'learning_log.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'learning_log',
-        'USER': 'postgres',
-        'PASSWORD': 'littleheady3',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'learning_log',
+#         'USER': 'postgres',
+#         'PASSWORD': 'littleheady3',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#     }
+# }
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
