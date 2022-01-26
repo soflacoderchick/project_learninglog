@@ -27,11 +27,11 @@ SECRET_KEY = 'b5+w8g0kkl&^0!$6&i56to)*i#xp-a-8xtehk3jw*7_8p&j)sv'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
-if os.environ.get('DEBUG') == 'TRUE':
-    DEBUG = True
-elif os.environ.get('DEBUG') == 'FALSE':
-    DEBUG = False
+DEBUG = True
+# if os.environ.get('DEBUG') == 'TRUE':
+#     DEBUG = True
+# elif os.environ.get('DEBUG') == 'FALSE':
+#     DEBUG = False
 
 
 ALLOWED_HOSTS = ['.herokuapp.com']
@@ -145,7 +145,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # MEDIA_URL = '/media/'
